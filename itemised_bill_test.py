@@ -13,6 +13,8 @@ class MyTest(unittest.TestCase):
         self.listofLists = itemised_bill(self.data)
         self.listOfMaps = itemised_bill_list_of_maps(self.listofLists)
         self.duration = itemised_bill_call_duration(self.listOfMaps)
+        self.duration_in_seconds = itemised_bill_duration_in_seconds(self.duration)
+
 
     def test_itemised_bill_data(self):
 
@@ -35,11 +37,11 @@ class MyTest(unittest.TestCase):
     #     self.assertEqual(number_of_calls, 848484)
 
     def test_itemised_bill_call_duration(self):
-        self.assertEqual(self.duration, '00h05m34s')
+        self.assertEqual(self.duration[0], '00h05m34s')
 
     def test_itemised_bill_duration_in_seconds(self):
-        duration_in_seconds = itemised_bill_duration_in_seconds(self.duration)
-        self.assertEqual(duration_in_seconds, 334)
+        self.assertEqual(self.duration_in_seconds[0], 334)
+
 
 if __name__ == '__main__':
     unittest.main()
