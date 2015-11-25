@@ -1,6 +1,4 @@
 import csv
-import datetime
-import time
 
 
 def itemised_bill(data):
@@ -50,8 +48,12 @@ def itemised_bill_call_duration(listOfMaps):
     mylist = []
     for rows in listOfMaps:
         mylist.append(rows['Duration'])
-    return mylist[0]
+    return mylist
 
 
 def itemised_bill_duration_in_seconds(duration):
-    return int(duration[0:2]) * 3600 + int(duration[3:5]) * 60 + int(duration[6:8])
+    mylist = []
+    for seconds in duration:
+        results = int(seconds[0:2]) * 3600 + int(seconds[3:5]) * 60 + int(seconds[6:8])
+        mylist.append(results)
+    return mylist
